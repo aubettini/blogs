@@ -1,0 +1,26 @@
+service: node-express-blog
+
+provider:
+  name: google
+  stage: dev
+  runtime: nodejs18
+  region: us-east4
+  project: expressapitest
+  # memorySize: 256 MB
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-google-cloudfunctions
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+functions:
+  api:
+    handler: http
+    events:
+      - http: path

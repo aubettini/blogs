@@ -1,0 +1,22 @@
+{
+  "name": "google-node-express",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "serverless.com",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-google-cloudfunctions": "^4.6.0"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^6.5.0",
+    "@next-auth/supabase-adapter": "^0.2.1",
+    "@supabase/supabase-js": "^2.17.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "next-auth": "^4.22.0"
+  }
+}

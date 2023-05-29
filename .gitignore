@@ -32,3 +32,9 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+node_modules
+.serverless
+
+# VScode
+.DS_Store
