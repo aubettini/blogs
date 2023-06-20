@@ -1,0 +1,44 @@
+repos:
+  - repo: "https://github.com/antonbabenko/pre-commit-terraform"
+    rev: v1.76.0
+    hooks:
+      - id: terraform_fmt
+        args:
+          - "--args=-recursive"
+      - id: terraform_tflint
+        args:
+          - "--args=--config=__GIT_WORKING_DIR__/.tflint.hcl"
+      - id: terraform_validate
+      # - id: terraform_tfsec
+      - id: terraform_checkov
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0 # Use the ref you want to point at
+    hooks:
+      - id: trailing-whitespace
+        args:
+          - "--markdown-linebreak-ext=md"
+      - id: mixed-line-ending
+        args:
+          - "--fix=auto"
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: detect-aws-credentials
+        args:
+          - "--allow-missing-credentials"
+      - id: detect-private-key
+      - id: no-commit-to-branch
+  - repo: https://github.com/terraform-docs/terraform-docs
+    rev: v0.16.0
+    hooks:
+      - id: terraform-docs-go
+        args:
+          [
+            "markdown",
+            "table",
+            "--output-file",
+            "README.md",
+            "./comparison-serverless-container-with-k6/terraform",
+          ]
